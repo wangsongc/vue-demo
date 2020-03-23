@@ -18,7 +18,8 @@ const First = { template: '<div><h2>我是第 1 个子页面</h2></div>' }
 import euiexample from './component/euiexample.vue'
 import secondcomponent from './component/secondcomponent.vue'
 import issue211 from './component/issue211.vue'
-import issue169 from './component/issue169.vue'
+import    issue169 from './component/issue169.vue'
+import issue211 from './component/issue211.vue'
 
  
 // 创建一个路由器实例
