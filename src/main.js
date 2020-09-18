@@ -19,6 +19,7 @@ import euiexample from './component/euiexample.vue'
 import secondcomponent from './component/secondcomponent.vue'
 import issue211 from './component/issue211.vue'
 import issue169 from './component/issue169.vue'
+import ValidationProvider from './component/veevalidatedemo.vue'
 
  
 // 创建一个路由器实例
@@ -46,6 +47,10 @@ const router = new VueRouter({
     {
       path: '/issue169',
       component: issue169
+    },
+    {
+      path: '/veevalidatedemo',
+      component: ValidationProvider
     }
   ]
 })

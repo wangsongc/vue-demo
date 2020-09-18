@@ -10,6 +10,7 @@
       <li><router-link to="/second">点我跳转到second</router-link> </li>
       <li><router-link to="/issue211">点我跳转到issue211</router-link> </li>
       <li><router-link to="/issue169">点我跳转到issue169</router-link> </li>
+      <li><router-link to="/veevalidatedemo">点我跳转到veevalidatedemo</router-link> </li>
     </ul>
     <router-view class="view"></router-view>
 
