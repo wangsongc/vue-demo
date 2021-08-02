@@ -1,60 +1,64 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <h1>{{ msg }}</h1>
-    <!-- <firstcomponent></firstcomponent> -->
-    <!-- <secondcomponent></secondcomponent> -->
-    <ul>
-      <li><router-link to="/first">点我跳转到first</router-link> </li>
-      <li><router-link to="/euiexample">点我跳转到euiexample</router-link> </li>
-      <li><router-link to="/second">点我跳转到second</router-link> </li>
-      <li><router-link to="/issue211">点我跳转到issue211</router-link> </li>
-      <li><router-link to="/issue169">点我跳转到issue169</router-link> </li>
-      <li><router-link to="/veevalidatedemo">点我跳转到veevalidatedemo</router-link> </li>
-    </ul>
-    <router-view class="view"></router-view>
+    <div id="v-main">
+      <p v-if="!welcomeValue">
+        Please enter your name : <input type="text" @keyup.enter="username" />
+      </p>
+      <p v-else>
+        Welcome again : {{ welcomeValue }}
+        <button @click="deleteUser">{{ deleteUserText }}</button>
+        {{ deleteUserState }}
+      </p>
 
+      <div>
+        <el-popconfirm
+          @confirm="console.log(1111)"
+          title="这是一段内容确定删除吗？"
+        >
+          <el-button slot="reference">删除</el-button>
+        </el-popconfirm>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import firstcomponent from './component/firstcomponent.vue'
 export default {
-  name: 'app',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
-    }
+  name: "App",
+  components: {
+    // HelloWorld,
   },
-  components: { firstcomponent }
-}
+  data: function() {
+    return {
+      welcomeValue: this.$cookies.get("username"),
+      deleteUserText: "Delete Cookie",
+      deleteUserState: "",
+    };
+  },
+  methods: {
+    username: function(event) {
+      this.welcomeValue = event.target.value;
+      this.$cookies.set("username", this.welcomeValue);
+    },
+    deleteUser: function() {
+      this.$cookies.remove("username");
+      this.deleteUserState = "√";
+
+      setTimeout(function() {
+        location.reload();
+      }, 0.5 * 1000);
+    },
+  },
+};
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
-}
-
-h1, h2 {
-  font-weight: normal;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
 }
 </style>
