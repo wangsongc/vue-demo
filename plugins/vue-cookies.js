@@ -6,7 +6,7 @@
  * Released under the MIT license
  */
 
-(function() {
+ (function() {
   var defaultConfig = {
     expires: "1d",
     path: "; path=/",

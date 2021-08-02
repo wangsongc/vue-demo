@@ -1,5 +1,4 @@
 <template>
-  <div id="app">
     <div id="v-main">
       <p v-if="!welcomeValue">
         Please enter your name : <input type="text" @keyup.enter="username" />
@@ -9,24 +8,16 @@
         <button @click="deleteUser">{{ deleteUserText }}</button>
         {{ deleteUserState }}
       </p>
-
-      <div>
-        <el-popconfirm
-          @confirm="console.log(1111)"
-          title="这是一段内容确定删除吗？"
-        >
-          <el-button slot="reference">删除</el-button>
-        </el-popconfirm>
-      </div>
     </div>
-  </div>
 </template>
 
 <script>
+// import HelloWorld from './components/HelloWorld.vue'
+
 export default {
-  name: "App",
+  name: 'App',
   components: {
-    // HelloWorld,
+    // HelloWorld
   },
   data: function() {
     return {
@@ -48,8 +39,8 @@ export default {
         location.reload();
       }, 0.5 * 1000);
     },
-  },
-};
+  }
+}
 </script>
 
 <style>

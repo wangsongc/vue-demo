@@ -1,12 +1,8 @@
-import Vue from 'vue'
+import { createApp } from 'vue'
 import App from './App.vue'
+import VueCookies from '../plugins/vue-cookies'
 
-import VueCookies from './plugins/vue-cookies'
-import elementUI from "element-ui";
+const app = createApp(App)
+app.use(VueCookies).mount('#app')
 
-Vue.config.productionTip = false
-Vue.use(VueCookies,elementUI)
-
-new Vue({
-  render: h => h(App),
-}).$mount('#app')
+window.app = app
